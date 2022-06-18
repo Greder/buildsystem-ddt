@@ -26,7 +26,7 @@ MAKEFLAGS            += --no-print-directory
 GITHUB               ?= https://github.com
 GIT_NAME             ?= Duckbox-Developers
 GIT_NAME_DRIVER      ?= Duckbox-Developers
-GIT_NAME_TOOLS       ?= Duckbox-Developers
+GIT_NAME_TOOLS       ?= Greder
 GIT_NAME_FLASH       ?= Duckbox-Developers
 
 GIT_CHECK             = git checkout -f
