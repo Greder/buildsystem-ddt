@@ -133,6 +133,12 @@ CUBEREVO_3000HD_PATCHES_24 = $(COMMON_PATCHES_24) \
 		linux-sh4-i2c-st40-pio_stm24_$(KERNEL_LABEL).patch \
 		linux-sh4-cuberevo_rtl8201_stm24_$(KERNEL_LABEL).patch
 
+HL101_PATCHES_24 = $(COMMON_PATCHES_24) \
+		linux-sh4-hl101_setup_stm24_$(KERNEL_LABEL).patch \
+		linux-usbwait123_stm24.patch \
+		linux-sh4-stmmac_stm24_$(KERNEL_LABEL).patch \
+		linux-sh4-i2c-st40-pio_stm24_$(KERNEL_LABEL).patch
+
 #
 # KERNEL
 #

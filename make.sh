@@ -65,6 +65,9 @@ case $1 in
 		echo "   27)  Spark"
 		echo "   28)  Spark7162"
 		echo
+		echo "  Opticum"
+		echo "   29)  hl101"
+		echo
 		echo "  arm-based receivers"
 		echo "  VU+"
 		echo "   41)  VU+ Solo 4K       42)  VU+ Uno 4K          43)  VU+ Ultimo 4K"
@@ -105,6 +108,7 @@ case "$REPLY" in
 
 	27) BOXARCH="sh4";BOXTYPE="spark";;
 	28) BOXARCH="sh4";BOXTYPE="spark7162";;
+	29) BOXARCH="sh4";BOXTYPE="hl101";;
 
 	41) BOXARCH="arm";BOXTYPE="vusolo4k";;
 	42) BOXARCH="arm";BOXTYPE="vuuno4k";;
