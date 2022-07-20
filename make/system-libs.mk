@@ -1,18 +1,15 @@
 #
 # cortex-strings
 #
-CORTEX_STRINGS_VER = 48fd30c
-CORTEX_STRINGS_SOURCE = cortex-strings-git-$(CORTEX_STRINGS_VER).tar.bz2
-CORTEX_STRINGS_URL = http://git.linaro.org/git-ro/toolchain/cortex-strings.git
-
-$(ARCHIVE)/$(CORTEX_STRINGS_SOURCE):
-	$(SCRIPTS_DIR)/get-git-archive.sh $(CORTEX_STRINGS_URL) $(CORTEX_STRINGS_VER) $(notdir $@) $(ARCHIVE)
-
-$(D)/cortex_strings: $(D)/directories $(ARCHIVE)/$(CORTEX_STRINGS_SOURCE)
+$(D)/cortex_strings: $(D)/directories
 	$(START_BUILD)
-	$(REMOVE)/cortex-strings-git-$(CORTEX_STRINGS_VER)
-	$(UNTAR)/$(CORTEX_STRINGS_SOURCE)
-	$(CHDIR)/cortex-strings-git-$(CORTEX_STRINGS_VER); \
+	$(REMOVE)/cortex-strings
+	set -e; if [ -d $(ARCHIVE)/cortex-strings.git ]; \
+		then cd $(ARCHIVE)/cortex-strings.git; git pull; \
+		else cd $(ARCHIVE); git clone https://github.com/Duckbox-Developers/cortex-strings.git cortex-strings.git; \
+		fi
+	cp -ra $(ARCHIVE)/cortex-strings.git $(BUILD_TMP)/cortex-strings
+	$(CHDIR)/cortex-strings; \
 		./autogen.sh  $(SILENT_OPT); \
 		$(MAKE_OPTS) \
 		./configure $(SILENT_OPT)\
@@ -25,7 +22,7 @@ $(D)/cortex_strings: $(D)/directories $(ARCHIVE)/$(CORTEX_STRINGS_SOURCE)
 		$(MAKE); \
 		$(MAKE) install DESTDIR=$(TARGET_DIR)
 	$(REWRITE_LIBTOOL)/libcortex-strings.la
-	$(REMOVE)/cortex-strings-git-$(CORTEX_STRINGS_VER)
+	$(REMOVE)/cortex-strings
 	$(TOUCH)
 
 #
@@ -1702,7 +1699,7 @@ $(D)/pugixml: $(D)/bootstrap $(ARCHIVE)/$(PUGIXML_SOURCE)
 #
 GRAPHLCD_VER = 55d4bd8
 GRAPHLCD_SOURCE = graphlcd-git-$(GRAPHLCD_VER).tar.bz2
-GRAPHLCD_URL = https://projects.vdr-developer.org/git/graphlcd-base.git
+GRAPHLCD_URL = https://github.com/Duckbox-Developers/graphlcd.git
 GRAPHLCD_PATCH = graphlcd-git-$(GRAPHLCD_VER).patch
 ifeq ($(BOXTYPE), $(filter $(BOXTYPE), vuduo4k vuduo4kse vuuno4kse vuultimo4k vusolo4k))
 GRAPHLCD_PATCH += graphlcd-vuplus4k.patch
