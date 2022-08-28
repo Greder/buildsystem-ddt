@@ -453,7 +453,7 @@ UTIL_LINUX_MAJOR = 2.36
 UTIL_LINUX_MINOR = .2
 else
 UTIL_LINUX_MAJOR = 2.38
-#UTIL_LINUX_MINOR = .1
+UTIL_LINUX_MINOR = .1
 endif
 UTIL_LINUX_VER = $(UTIL_LINUX_MAJOR)$(UTIL_LINUX_MINOR)
 UTIL_LINUX_SOURCE = util-linux-$(UTIL_LINUX_VER).tar.xz
@@ -973,7 +973,7 @@ $(D)/hddtemp: $(D)/bootstrap $(ARCHIVE)/$(HDDTEMP_SOURCE)
 #
 # hdparm
 #
-HDPARM_VER = 9.63
+HDPARM_VER = 9.64
 HDPARM_SOURCE = hdparm-$(HDPARM_VER).tar.gz
 
 $(ARCHIVE)/$(HDPARM_SOURCE):
@@ -2002,8 +2002,8 @@ $(D)/dropbear: $(D)/bootstrap $(D)/zlib $(ARCHIVE)/$(DROPBEAR_SOURCE)
 #
 # dropbearmulti
 #
-DROPBEARMULTI_VER = 808bc39
-#DROPBEARMULTI_VER = b8669b0
+DROPBEARMULTI_VER = 17e02fe
+#DROPBEARMULTI_VER = 808bc39
 DROPBEARMULTI_SOURCE = dropbearmulti-git-$(DROPBEARMULTI_VER).tar.bz2
 DROPBEARMULTI_URL = https://github.com/mkj/dropbear.git
 
